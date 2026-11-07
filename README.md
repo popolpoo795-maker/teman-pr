@@ -10,6 +10,8 @@ Aplikasi planner PR berbasis React untuk mencatat tugas sekolah, mata pelajaran,
 - Countdown tenggat, penanda tugas segera jatuh tempo, dan status terlambat.
 - Ringkasan progres, filter tugas, dan pencarian.
 - Tampilan responsif untuk desktop dan layar kecil.
+- Bisa dipasang sebagai aplikasi desktop dari browser yang mendukung PWA.
+- Cache aplikasi membuat tampilan utama tetap bisa dibuka saat offline setelah kunjungan pertama.
 
 ## Menjalankan aplikasi
 
@@ -33,6 +35,12 @@ Persyaratan: Node.js 20.19+ atau 22.12+ dan npm.
 Di PowerShell Windows, gunakan `npm.cmd` jika perintah `npm` diblokir karena PowerShell mencoba menjalankan `npm.ps1`. Cara ini tidak memerlukan perubahan Execution Policy. Di Command Prompt, `npm install` dan `npm run dev` juga bisa digunakan.
 
 Untuk membuat versi produksi, jalankan `npm run build`. Hasilnya ada di folder `dist/`.
+
+## Memasang Teman PR sebagai aplikasi
+
+Setelah situs dipublikasikan melalui HTTPS, buka alamatnya di Chrome atau Edge. Pilih **Pasang aplikasi Teman PR** dari tombol di bagian atas jika tersedia, atau buka menu browser (⋮) lalu pilih **Install Teman PR / Pasang Teman PR**. Aplikasi akan terbuka di jendela tersendiri dan dapat dibuka dari Start Menu.
+
+Catatan: daftar PR tetap tersimpan di LocalStorage browser/perangkat tersebut. Cache offline menyimpan berkas aplikasi, bukan menyinkronkan tugas ke akun atau perangkat lain.
 
 ## Menerbitkan gratis dengan GitHub Pages
 

@@ -11,6 +11,7 @@ import {
   CheckCircle2,
   Circle,
   Clock3,
+  Download,
   GraduationCap,
   LayoutDashboard,
   ListTodo,
@@ -103,6 +104,17 @@ function App() {
   const [editingTask, setEditingTask] = useState(null)
   const [toast, setToast] = useState('')
   const [now, setNow] = useState(() => new Date())
+  const [installPrompt, setInstallPrompt] = useState(null)
+
+  useEffect(() => {
+    function handleInstallAvailable(event) {
+      event.preventDefault()
+      setInstallPrompt(event)
+    }
+
+    window.addEventListener('beforeinstallprompt', handleInstallAvailable)
+    return () => window.removeEventListener('beforeinstallprompt', handleInstallAvailable)
+  }, [])
 
   useEffect(() => {
     try {
@@ -192,6 +204,13 @@ function App() {
     setToast('Tugas dihapus.')
   }
 
+  async function installApp() {
+    if (!installPrompt) return
+    await installPrompt.prompt()
+    await installPrompt.userChoice
+    setInstallPrompt(null)
+  }
+
   const activeFilter = filters.find((item) => item.id === filter)
   const todayLabel = new Intl.DateTimeFormat('id-ID', { weekday: 'long', day: 'numeric', month: 'long' }).format(now)
 
@@ -204,6 +223,7 @@ function App() {
         </a>
         <div className="header-right">
           <span className="header-date"><CalendarDays size={15} /> {todayLabel}</span>
+          {installPrompt && <button className="install-button" onClick={installApp}><Download size={15} /> Pasang aplikasi</button>}
           <span className="avatar" aria-label="Profil pelajar">A</span>
         </div>
       </header>

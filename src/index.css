@@ -28,6 +28,8 @@ button:focus-visible, input:focus-visible { outline: 3px solid #9cc7a9; outline-
 .brand-accent { color: #568463; }
 .header-right { display: flex; align-items: center; gap: 20px; color: #71796f; font-size: 12px; }
 .header-date { display: flex; align-items: center; gap: 8px; }
+.install-button { display: inline-flex; align-items: center; gap: 6px; padding: 7px 10px; border: 1px solid #d9e5d8; border-radius: 7px; color: #3e704f; background: #f4f8f1; font-size: 11px; font-weight: 650; }
+.install-button:hover { border-color: #a9c4aa; background: #eaf2e8; }
 .avatar { height: 33px; width: 33px; display: grid; place-items: center; border-radius: 50%; background: #dce9dc; color: #315b41; font-weight: 700; font-size: 13px; }
 .app-layout { display: flex; max-width: 1600px; margin: auto; }
 .sidebar { width: 244px; min-height: calc(100vh - 70px); flex: 0 0 244px; padding: 34px 18px 22px 26px; position: relative; border-right: 1px solid #ebeee8; background: #fafbf8; }
